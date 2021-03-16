@@ -1,5 +1,24 @@
 # @backstage/plugin-catalog
 
+## 0.4.3
+
+### Patch Changes
+
+- 633a31fec: Add the ability to change the initially selected filter, if not set it still defaults to `owned`.
+
+  ```js
+  <Route
+    path="/catalog"
+    element={<CatalogIndexPage initiallySelectedFilter="all" />}
+  />
+  ```
+
+- 8686eb38c: Use errors from `@backstage/errors`
+- Updated dependencies [8686eb38c]
+- Updated dependencies [8686eb38c]
+  - @backstage/catalog-client@0.3.8
+  - @backstage/core@0.7.2
+
 ## 0.4.2
 
 ### Patch Changes

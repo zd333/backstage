@@ -1,5 +1,13 @@
 # @backstage/plugin-user-settings
 
+## 0.2.8
+
+### Patch Changes
+
+- 147b4c5b1: Avoid using `ApiRef` descriptions in the UI.
+- Updated dependencies [8686eb38c]
+  - @backstage/core@0.7.2
+
 ## 0.2.7
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @backstage/plugin-tech-radar
 
+## 0.3.8
+
+### Patch Changes
+
+- b56815b40: Fixes issue where radar description dialog is not shown when the entry has an url external to the radar page
+- Updated dependencies [8686eb38c]
+  - @backstage/core@0.7.2
+
 ## 0.3.7
 
 ### Patch Changes

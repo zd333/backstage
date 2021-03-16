@@ -1,5 +1,18 @@
 # @backstage/plugin-kubernetes
 
+## 0.4.1
+
+### Patch Changes
+
+- 1df417bd3: Add tests for kubernetes custom hook
+- 1f98a6ff8: Filter out k8s cluster with no resources or errors
+- Updated dependencies [0434853a5]
+- Updated dependencies [8686eb38c]
+- Updated dependencies [1f98a6ff8]
+  - @backstage/config@0.1.4
+  - @backstage/core@0.7.2
+  - @backstage/plugin-kubernetes-backend@0.3.1
+
 ## 0.4.0
 
 ### Minor Changes

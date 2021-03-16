@@ -1,5 +1,20 @@
 # @backstage/plugin-techdocs
 
+## 0.6.2
+
+### Patch Changes
+
+- 83bfc98a3: On TechDocs page header, change the breadcrumbs link to be static and point to TechDocs homepage.
+- e7baa0d2e: Separate techdocs-backend and frontend config schema declarations
+- c8b54c370: Extended TechDocs HomePage with owned documents
+- Updated dependencies [0434853a5]
+- Updated dependencies [8686eb38c]
+- Updated dependencies [8686eb38c]
+- Updated dependencies [424742dc1]
+  - @backstage/config@0.1.4
+  - @backstage/core@0.7.2
+  - @backstage/techdocs-common@0.4.5
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,48 @@
 # @backstage/create-app
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [010aed784]
+- Updated dependencies [633a31fec]
+- Updated dependencies [8686eb38c]
+- Updated dependencies [b56815b40]
+- Updated dependencies [147b4c5b1]
+- Updated dependencies [83bfc98a3]
+- Updated dependencies [7d8c4c97c]
+- Updated dependencies [e7baa0d2e]
+- Updated dependencies [8b4f7e42a]
+- Updated dependencies [8686eb38c]
+- Updated dependencies [84972540b]
+- Updated dependencies [0434853a5]
+- Updated dependencies [a0dacc184]
+- Updated dependencies [8686eb38c]
+- Updated dependencies [4bc98a5b9]
+- Updated dependencies [d2f4efc5d]
+- Updated dependencies [8686eb38c]
+- Updated dependencies [424742dc1]
+- Updated dependencies [c8b54c370]
+- Updated dependencies [8b5e59750]
+- Updated dependencies [8686eb38c]
+  - @backstage/plugin-catalog-backend@0.6.6
+  - @backstage/plugin-catalog@0.4.3
+  - @backstage/catalog-client@0.3.8
+  - @backstage/plugin-tech-radar@0.3.8
+  - @backstage/plugin-user-settings@0.2.8
+  - @backstage/plugin-techdocs@0.6.2
+  - @backstage/plugin-catalog-import@0.4.4
+  - @backstage/plugin-techdocs-backend@0.6.5
+  - @backstage/plugin-scaffolder-backend@0.9.2
+  - @backstage/backend-common@0.6.0
+  - @backstage/cli@0.6.5
+  - @backstage/config@0.1.4
+  - @backstage/core@0.7.2
+  - @backstage/plugin-auth-backend@0.3.5
+  - @backstage/plugin-app-backend@0.3.10
+  - @backstage/plugin-proxy-backend@0.2.6
+  - @backstage/plugin-rollbar-backend@0.1.8
+
 ## 0.3.13
 
 ### Patch Changes
