@@ -1,5 +1,7 @@
 {
   "name": "root",
+  "main": "plugins/newrelic/dist/index.esm.js",
+  "types": "plugins/newrelic/dist/index.d.ts",
   "private": true,
   "engines": {
     "node": "12 || 14"
@@ -41,6 +43,16 @@
     "**/@roadiehq/**/@backstage/catalog-model": "*"
   },
   "version": "1.0.0",
+  "dependencies": {
+    "@backstage/core": "^0.7.1",
+    "@backstage/theme": "^0.2.4",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "4.0.0-alpha.45",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-use": "^15.3.3"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.14.0",
     "@octokit/openapi-types": "^2.2.0",
