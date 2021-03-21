@@ -1,7 +1,7 @@
 {
   "name": "root",
-  "main": "plugins/newrelic/dist/index.esm.js",
-  "types": "plugins/newrelic/dist/index.d.ts",
+  "main": "plugins/sentry/dist/index.esm.js",
+  "types": "plugins/sentry/dist/index.d.ts",
   "private": true,
   "engines": {
     "node": "12 || 14"
@@ -44,14 +44,19 @@
   },
   "version": "1.0.0",
   "dependencies": {
+    "@backstage/catalog-model": "^0.7.3",
     "@backstage/core": "^0.7.1",
+    "@backstage/plugin-catalog-react": "^0.1.1",
     "@backstage/theme": "^0.2.4",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "4.0.0-alpha.45",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-use": "^15.3.3"
+    "react-router": "6.0.0-beta.0",
+    "react-sparklines": "^1.7.0",
+    "react-use": "^15.3.3",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "@changesets/cli": "^2.14.0",
