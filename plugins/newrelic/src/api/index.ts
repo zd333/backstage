@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { createApiRef, DiscoveryApi } from '@backstage/core';
+import { createApiRef, DiscoveryApi, IdentityApi } from '@backstage/core';
 
 export type NewRelicApplication = {
   id: number;
@@ -62,6 +62,7 @@ const DEFAULT_PROXY_PATH_BASE = '/newrelic';
 
 type Options = {
   discoveryApi: DiscoveryApi;
+  identityApi: IdentityApi;
   /**
    * Path to use for requests via the proxy, defaults to /newrelic
    */
@@ -74,16 +75,23 @@ export interface NewRelicApi {
 
 export class NewRelicClient implements NewRelicApi {
   private readonly discoveryApi: DiscoveryApi;
+  private readonly identityApi: IdentityApi;
+
   private readonly proxyPathBase: string;
 
   constructor(options: Options) {
     this.discoveryApi = options.discoveryApi;
+    this.identityApi = options.identityApi;
     this.proxyPathBase = options.proxyPathBase ?? DEFAULT_PROXY_PATH_BASE;
   }
 
   async getApplications(): Promise<NewRelicApplications> {
     const url = await this.getApiUrl('apm', 'applications.json');
-    const response = await fetch(url);
+    const token = await this.identityApi.getIdToken();
+
+    const response = await fetch(url, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    });
     let responseJson;
 
     try {
