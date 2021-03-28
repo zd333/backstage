@@ -26,7 +26,7 @@ import {
   BuildSummary,
   GitType,
 } from 'circleci-api';
-import { createApiRef, DiscoveryApi } from '@backstage/core';
+import { createApiRef, DiscoveryApi, IdentityApi } from '@backstage/core';
 
 export { GitType };
 export type { BuildWithSteps, BuildStepAction, BuildSummary };
@@ -40,6 +40,7 @@ const DEFAULT_PROXY_PATH = '/circleci/api';
 
 type Options = {
   discoveryApi: DiscoveryApi;
+  identityApi: IdentityApi;
   /**
    * Path to use for requests via the proxy, defaults to /circleci/api
    */
@@ -48,44 +49,77 @@ type Options = {
 
 export class CircleCIApi {
   private readonly discoveryApi: DiscoveryApi;
+  private readonly identityApi: IdentityApi;
   private readonly proxyPath: string;
 
   constructor(options: Options) {
     this.discoveryApi = options.discoveryApi;
+    this.identityApi = options.identityApi;
     this.proxyPath = options.proxyPath ?? DEFAULT_PROXY_PATH;
   }
 
   async retry(buildNumber: number, options: Partial<CircleCIOptions>) {
-    return postBuildActions('', buildNumber, BuildAction.RETRY, {
-      circleHost: await this.getApiUrl(),
-      ...options.vcs,
-    });
+    const token = await this.identityApi.getIdToken();
+    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
+    return postBuildActions(
+      '',
+      buildNumber,
+      BuildAction.RETRY,
+      {
+        circleHost: await this.getApiUrl(),
+        ...options.vcs,
+      },
+      headers,
+    );
   }
 
   async getBuilds(
     { limit = 10, offset = 0 }: { limit: number; offset: number },
     options: Partial<CircleCIOptions>,
   ) {
-    return getBuildSummaries('', {
-      options: {
-        limit,
-        offset,
+    const token = await this.identityApi.getIdToken();
+    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
+    return getBuildSummaries(
+      '',
+      {
+        options: {
+          limit,
+          offset,
+        },
+        vcs: {},
+        circleHost: await this.getApiUrl(),
+        ...options,
       },
-      vcs: {},
-      circleHost: await this.getApiUrl(),
-      ...options,
-    });
+      headers,
+    );
   }
 
   async getUser(options: Partial<CircleCIOptions>) {
-    return getMe('', { circleHost: await this.getApiUrl(), ...options });
+    const token = await this.identityApi.getIdToken();
+    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
+    return getMe(
+      '',
+      { circleHost: await this.getApiUrl(), ...options },
+      headers,
+    );
   }
 
   async getBuild(buildNumber: number, options: Partial<CircleCIOptions>) {
-    return getFullBuild('', buildNumber, {
-      circleHost: await this.getApiUrl(),
-      ...options.vcs,
-    });
+    const token = await this.identityApi.getIdToken();
+    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
+    return getFullBuild(
+      '',
+      buildNumber,
+      {
+        circleHost: await this.getApiUrl(),
+        ...options.vcs,
+      },
+      headers,
+    );
   }
 
   private async getApiUrl() {

@@ -19,6 +19,7 @@ import {
   createApiFactory,
   discoveryApiRef,
   createRoutableExtension,
+  identityApiRef,
 } from '@backstage/core';
 import { circleCIApiRef, CircleCIApi } from './api';
 import { circleCIRouteRef } from './route-refs';
@@ -28,8 +29,9 @@ export const circleCIPlugin = createPlugin({
   apis: [
     createApiFactory({
       api: circleCIApiRef,
-      deps: { discoveryApi: discoveryApiRef },
-      factory: ({ discoveryApi }) => new CircleCIApi({ discoveryApi }),
+      deps: { discoveryApi: discoveryApiRef, identityApi: identityApiRef },
+      factory: ({ discoveryApi, identityApi }) =>
+        new CircleCIApi({ discoveryApi, identityApi }),
     }),
   ],
 });

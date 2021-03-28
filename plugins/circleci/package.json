@@ -38,7 +38,7 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "4.0.0-alpha.45",
-    "circleci-api": "^4.0.0",
+    "circleci-api": "git+ssh://git@github.com/zd333/circleci-api.git#e25d8f6e732f2de07a2d01fadc3f8d3222188127",
     "dayjs": "^1.9.4",
     "lodash": "^4.17.15",
     "moment": "^2.25.3",

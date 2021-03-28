@@ -1,7 +1,7 @@
 {
   "name": "root",
-  "main": "plugins/sentry/dist/index.esm.js",
-  "types": "plugins/sentry/dist/index.d.ts",
+  "main": "plugins/circleci/dist/index.esm.js",
+  "types": "plugins/circleci/dist/index.d.ts",
   "private": true,
   "engines": {
     "node": "12 || 14"
@@ -44,6 +44,7 @@
   },
   "version": "1.0.0",
   "dependencies": {
+    "axios": "^0.21.1",
     "@backstage/catalog-model": "^0.7.3",
     "@backstage/core": "^0.7.1",
     "@backstage/plugin-catalog-react": "^0.1.1",
@@ -51,12 +52,16 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "4.0.0-alpha.45",
+    "circleci-api": "git+ssh://git@github.com/zd333/circleci-api.git#e25d8f6e732f2de07a2d01fadc3f8d3222188127",
+    "dayjs": "^1.9.4",
+    "lodash": "^4.17.15",
+    "moment": "^2.25.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-lazylog": "^4.5.2",
     "react-router": "6.0.0-beta.0",
-    "react-sparklines": "^1.7.0",
-    "react-use": "^15.3.3",
-    "timeago.js": "^4.0.2"
+    "react-router-dom": "6.0.0-beta.0",
+    "react-use": "^15.3.3"
   },
   "devDependencies": {
     "@changesets/cli": "^2.14.0",
